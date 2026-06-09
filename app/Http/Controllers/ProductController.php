@@ -59,7 +59,7 @@ class ProductController extends Controller
 
         //upload image
         $image = $request->file('image');
-        $image->storeAs('products', $image->hashName());
+        $image->storeAs('public/products', $image->hashName());
 
         //create product
         Product::create([
@@ -72,5 +72,20 @@ class ProductController extends Controller
 
         //redirect to index
         return redirect()->route('products.index')->with(['success' => 'Data Berhasil Disimpan!']);
+    }
+    
+    /**
+     * show
+     *
+     * @param  mixed $id
+     * @return View
+     */
+    public function show(string $id): View
+    {
+        //get product by ID
+        $product = Product::findOrFail($id);
+
+        //render view with product
+        return view('products.show', compact('product'));
     }
 }
