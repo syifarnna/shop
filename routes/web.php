@@ -22,4 +22,5 @@ Route::get('/dashboard', function () {
 
 // --- RUTE PRODUCTS (RESOURCE) ---
 // Gunakan Route::resource agar index, create, store, edit, update, dan destroy otomatis terhubung!
-Route::resource('/products', ProductController::class);
+// Cukup tambahkan ->middleware('auth') di belakangnya
+Route::resource('/products', ProductController::class)->middleware('auth');
