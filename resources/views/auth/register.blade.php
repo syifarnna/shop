@@ -33,6 +33,11 @@
             <label>Password:</label>
             <input type="password" name="password" required>
         </div>
+        <div>
+            <label>Konfirmasi Password:</label>
+            <input type="password" name="password_confirmation" required>
+        </div>
+        <br>
         <br>
         <button type="submit">Daftar</button>
     </form>
